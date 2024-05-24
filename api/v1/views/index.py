@@ -13,22 +13,22 @@ from models.state import State
 from models import storage
 
 
-@app_views.route('/status', methods=['GET'])
+@app_views.route('/status', methods=['GET'], strict_slashes=False)
 def api_status():
     """returns the status of API"""
     return jsonify({"status": "OK"})
 
 
-@app_views.route('/stats', methods=['GET'], strict_rules=False)
+@app_views.route('/stats', methods=['GET'], strict_slashes=False)
 def models_stats():
     """ returns the status of objects"""
     models = {
-        "amenities": Amenity,
-        "cities": City,
-        "places": Place,
-        "reviews": Review,
-        "states": State,
-        "users": User
+        "amenities": "Amenity",
+        "cities": "City",
+        "places": "Place",
+        "reviews": "Review",
+        "states": "State",
+        "users": "User"
     }
     stats_dict = {}
     for model in models:
