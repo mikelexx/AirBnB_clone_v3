@@ -19,8 +19,7 @@ def api_status():
     return jsonify({"status": "OK"})
 
 
-@app_views.route('/stats', methods=['GET'])
-@app_views.route('/stats/', methods=['GET'])
+@app_views.route('/stats', methods=['GET'], strict_rules=False)
 def models_stats():
     """ returns the status of objects"""
     models = {
