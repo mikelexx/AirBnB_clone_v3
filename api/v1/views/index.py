@@ -15,18 +15,20 @@ from models import storage
 
 @app_views.route('/status')
 def api_status():
+    """returns the status of API"""
     return jsonify({"status": "OK"})
 
 
 @app_views.route('/stats')
 def models_stats():
+    """ returns the status of objects"""
     models = {
         "amenities": Amenity,
         "cities": City,
         "places": Place,
         "reviews": Review,
         "states": State,
-        "user": User
+        "users": User
     }
     stats_dict = {}
     for model in models:

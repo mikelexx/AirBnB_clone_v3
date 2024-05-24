@@ -16,11 +16,13 @@ cors = CORS(app, resources={r"/*": {"origins": "0.0.0.0"}})
 
 @app.errorhandler(404)
 def resource_not_found(err):
-    return jsonify({"error": "Not found"})
+    """ returns response for non-existence resource"""
+    return jsonify({"error": "Not found"}), 404
 
 
 @app.teardown_appcontext
 def close_sqlalchemy_sessions(exc):
+    """ closes sqlalchemy storage session after each request"""
     storage.close()
 
 
