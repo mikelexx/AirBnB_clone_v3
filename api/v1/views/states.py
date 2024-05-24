@@ -8,8 +8,7 @@ from models.state import State
 from models import storage
 
 
-@app_views.route('/states/', methods=['GET'])
-@app_views.route('/states', methods=['GET'])
+@app_views.route('/states', methods=['GET'], strict_slashes=False)
 def get_states_objs():
     """
     Retrieves the list of all Stae Objects
@@ -45,8 +44,7 @@ def delete_state_obj(state_id):
     return jsonify({}), 200
 
 
-@app_views.route('/states/', methods=['POST'])
-@app_views.route('/states', methods=['POST'])
+@app_views.route('/states', methods=['POST'], strict_slashes=False)
 def create_state_obj():
     """
     Creates a State object
