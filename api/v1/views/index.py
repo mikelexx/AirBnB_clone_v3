@@ -13,7 +13,7 @@ from models.state import State
 from models import storage
 
 
-@app_views.route('/status', methods=['GET')]
+@app_views.route('/status', methods=['GET'])
 def api_status():
     """returns the status of API"""
     return jsonify({"status": "OK"})
