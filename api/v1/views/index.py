@@ -13,13 +13,13 @@ from models.state import State
 from models import storage
 
 
-@app_views.route('/status', methods=['GET'], strict_slashes=False)
+@app_views.route('/status', methods=['GET'])
 def api_status():
     """returns the status of API"""
     return jsonify({"status": "OK"})
 
 
-@app_views.route('/stats', methods=['GET'], strict_slashes=False)
+@app_views.route('/stats', methods=['GET'])
 def models_stats():
     """ returns the status of objects"""
     models = {
