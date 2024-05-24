@@ -20,7 +20,7 @@ def get_states_objs():
     return jsonify(states_list)
 
 
-@app_views.route('/states/<state_id>', methods=['GET'])
+@app_views.route('/states/<state_id>', methods=['GET'], strict_slashes=False)
 def get_state_obj(state_id):
     """
     Retrieves a State object
@@ -31,7 +31,9 @@ def get_state_obj(state_id):
     return jsonify(state.to_dict())
 
 
-@app_views.route('/states/<state_id>', methods=['DELETE'])
+@app_views.route('/states/<state_id>',
+                 methods=['DELETE'],
+                 strict_slashes=False)
 def delete_state_obj(state_id):
     """
     Deletes a State object
@@ -60,7 +62,7 @@ def create_state_obj():
     return jsonify(state.to_dict()), 201
 
 
-@app_views.route('/states/<state_id>', methods=['PUT'])
+@app_views.route('/states/<state_id>', methods=['PUT'], strict_slashes=False)
 def update_state_obj(state_id):
     """
     Updates a State object
