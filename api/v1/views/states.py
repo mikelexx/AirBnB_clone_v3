@@ -20,7 +20,7 @@ def get_states_objs():
     return jsonify(states_list)
 
 
-@app_views.route('/states/<state_id>', methods=['GET'], strict_slashes=False)
+@app_views.route('/states/<state_id>', methods=['GET'])
 def get_state_obj(state_id):
     """
     Retrieves a State object
