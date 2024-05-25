@@ -2,7 +2,7 @@
 """
 defines status route for api
 """
-from flask import jsonify, abort, request
+from flask import jsonify, abort, request, make_response
 from . import app_views
 from models.state import State
 from models import storage
@@ -78,4 +78,4 @@ def update_state_obj(state_id):
                    and key != 'updated_at' and key != 'id':
             setattr(state, key, val)
     storage.save()
-    return jsonify(state.to_dict()), 200
+    return make_response(jsonify(state.to_dict()), 200)
