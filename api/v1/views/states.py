@@ -32,7 +32,8 @@ def get_state_obj(state_id):
 
 
 @app_views.route('/states/<state_id>',
-                 methods=['DELETE'])
+                 methods=['DELETE'],
+                 strict_slashes=False)
 def delete_state_obj(state_id):
     """
     Deletes a State object
@@ -62,6 +63,7 @@ def create_state_obj():
 
 
 @app_views.route('/states/<state_id>', methods=['PUT'])
+@app_views.route('/states/<state_id>/', methods=['PUT'])
 def update_state_obj(state_id):
     """
     Updates a State object
