@@ -44,7 +44,7 @@ def delete_amenity_obj(amenity_id):
     return jsonify({}), 200
 
 
-@app_views.route('/amenities', methods=['POST'], stric_slashes=False)
+@app_views.route('/amenities', methods=['POST'], strict_slashes=False)
 def create_amenity_obj():
     """ Creates a amenity object"""
     data = request.get_json()
