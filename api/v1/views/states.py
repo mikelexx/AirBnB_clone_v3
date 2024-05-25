@@ -74,7 +74,8 @@ def update_state_obj(state_id):
     if not state:
         abort(404)
     for key, val in data.items():
-        if hasattr(state, key):
+        if hasattr(state, key) and key != 'create_at'
+        and key != 'updated_at' and key != 'id':
             setattr(state, key, val)
     storage.save()
     return jsonify(state.to_dict()), 200
