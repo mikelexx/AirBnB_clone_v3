@@ -74,8 +74,7 @@ def update_city(city_id):
     if not city:
         abort(404)
     for key, val in data.items():
-        if hasattr(city, key) and key \
-                   not in ['id', 'created_at', 'updated_at']:
+        if hasattr(city, key):
             setattr(city, key, val)
     storage.save()
     return jsonify(city.to_dict()), 200
