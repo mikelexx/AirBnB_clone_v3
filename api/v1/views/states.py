@@ -46,7 +46,7 @@ def delete_state_obj(state_id):
     return jsonify({}), 200
 
 
-@app_views.route('/states', methods=['POST'], strict_slashes=False)
+@app_views.route('/states/', methods=['POST'])
 def create_state_obj():
     """
     Creates a State object
@@ -63,7 +63,6 @@ def create_state_obj():
 
 
 @app_views.route('/states/<state_id>', methods=['PUT'])
-@app_views.route('/states/<state_id>/', methods=['PUT'])
 def update_state_obj(state_id):
     """
     Updates a State object
