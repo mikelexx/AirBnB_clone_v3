@@ -49,7 +49,7 @@ def create_state_city_obj(state_id):
     data = request.get_json()
     if not data:
         abort(404, "Not a JSON")
-    if not data["name"]:
+    if "name" not in data:
         abort(400, "Missing name")
     state = storage.get(State, state_id)
     if not state:
