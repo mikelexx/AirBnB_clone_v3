@@ -54,12 +54,8 @@ def create_state_city_obj(state_id):
     state = storage.get(State, state_id)
     if not state:
         abort(404)
-    if not data['state_id']:
-        city = City(**data, state_id=state_id)
-        storage.new(city)
-    else:
-        city = City(**data)
-        storage.new(city)
+    city = City(name=data['name'], state_id=state_id)
+    storage.new(city)
     storage.save()
     return jsonify(city.to_dict()), 201
 
