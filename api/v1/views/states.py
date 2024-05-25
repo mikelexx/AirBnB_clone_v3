@@ -62,7 +62,7 @@ def create_state_obj():
     return jsonify(state.to_dict()), 201
 
 
-@app_views.route('/states/<state_id>', methods=['PUT'], strict_slashes=False)
+@app_views.route('/states/<state_id>', methods=['PUT'])
 def update_state_obj(state_id):
     """
     Updates a State object
@@ -78,4 +78,4 @@ def update_state_obj(state_id):
                    and key != 'updated_at' and key != 'id':
             setattr(state, key, val)
     storage.save()
-    return make_response(jsonify(state.to_dict()), 200)
+    return jsonify(state.to_dict()), 200
