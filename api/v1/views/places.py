@@ -87,6 +87,8 @@ def update_place_obj(place_id):
         abort(404)
     for key, val in data.items():
         if hasattr(place, key):
-            setattr(place, key, val)
+            if key not in ['id', 'city_id',
+                           'user_id', 'created_at', 'updated_at']:
+                setattr(place, key, val)
     storage.save()
     return jsonify(place.to_dict()), 200

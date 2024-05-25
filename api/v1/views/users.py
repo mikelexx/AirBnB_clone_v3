@@ -71,6 +71,7 @@ def update_user(user_id):
         abort(404)
     for key, val in data.items():
         if hasattr(user, key):
+            if key not in ['id', 'email', 'created_at', 'updated_at']:
             setattr(user, key, val)
     storage.save()
     return jsonify(user.to_dict()), 200
