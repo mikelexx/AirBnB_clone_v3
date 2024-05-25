@@ -65,19 +65,15 @@ def create_state_city_obj(state_id):
 
 
 @app_views.route('/cities/<city_id>', methods=['PUT'], strict_slashes=False)
-def update_state_obj(state_id):
-    """
-    Updates a State object
-    """
+def update_city(city_id):
     data = request.get_json()
     if not data:
         abort(400, "Not a JSON")
-    state = storage.get("State", state_id)
-    if not state:
+    city = storage.get(City, city_id)
+    if not city:
         abort(404)
     for key, val in data.items():
-        if hasattr(state, key) and key != 'create_at'\
-                   and key != 'updated_at' and key != 'id':
-            setattr(state, key, val)
+        if hasattr(city, key):
+            setattr(city, key, val)
     storage.save()
-    return jsonify(state.to_dict()), 200
+    return jsonify(city.to_dict()), 200

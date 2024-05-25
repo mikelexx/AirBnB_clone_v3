@@ -62,8 +62,7 @@ def create_state_obj():
     return jsonify(state.to_dict()), 201
 
 
-@app_views.route('/states/<state_id>', methods=['PUT'],
-                 strict_slashes=False)
+@app_views.route('/states/<state_id>', methods=['PUT'])
 def update_state_obj(state_id):
     """
     Updates a State object
