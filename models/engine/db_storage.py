@@ -41,7 +41,7 @@ class DBStorage:
             Base.metadata.drop_all(self.__engine)
 
     def all(self, cls=None):
-        """query on the current database session"""
+        """query on current database session"""
         new_dict = {}
         for clss in classes:
             if cls is None or cls is classes[clss] or cls is clss:
@@ -52,7 +52,7 @@ class DBStorage:
         return (new_dict)
 
     def new(self, obj):
-        """add the object to the current database session"""
+        """add object to the current database session"""
         self.__session.add(obj)
 
     def save(self):
@@ -79,7 +79,7 @@ class DBStorage:
 
     def get(self, cls, id):
         """
-        Returns the object based on the class name and its ID, or None if not
+        Returns object based on the class name and its ID, or None if not
         found
         """
         objects = self.__session.query(classes[cls])
